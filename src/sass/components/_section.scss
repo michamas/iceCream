@@ -1,0 +1,38 @@
+@use '../utils/forward' as *;
+
+.section {
+  width: calc(100vw - (100vw - 100%));
+  margin: 0 auto;
+
+  &__container {
+    padding-inline: 20px;
+    min-width: calc(320px - (100vw - 100%));
+    max-width: calc(1280px - (100vw - 100%));
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .section__container {
+    padding-inline: calc(20px + 144 * ((100vw - 480px) / 288));
+  }
+}
+
+@include media-mapp('tablet', 'desktop') {
+  .section__container {
+    padding-inline: calc(35px + 40 * ((100vw - 900px) / 300));
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1280px) {
+  .section__container {
+    padding-inline: calc(75px + 40 * ((100vw - 1200px) / 80));
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section__container {
+    padding-inline: 115px;
+  }
+}

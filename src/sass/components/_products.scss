@@ -1,0 +1,360 @@
+@use '../utils/forward' as *;
+
+.products {
+  &__container {
+    padding-top: 121px;
+    padding-bottom: 98px;
+  }
+
+  &__label {
+    font-weight: 400px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    font-family: 'Titan One';
+    color: color-get('accent-secondary');
+    margin-bottom: 15px;
+  }
+
+  &__headline {
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 39px;
+    letter-spacing: 4%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Titan One';
+    color: color-get('accent-primary');
+  }
+
+  &__list {
+    list-style: none;
+    margin-top: 144px;
+    @include flex-display(wrap, 130px);
+  }
+
+  &__item {
+    margin: 0 auto;
+    position: relative;
+    border-radius: 24px;
+    @include flex-basis(1, 130px);
+  }
+
+  &__item--1 {
+    background-color: color-get('first-chld');
+    z-index: 0;
+  }
+
+  &__item--2 {
+    background-color: color-get('second-chld');
+  }
+
+  &__item--3 {
+    background-color: color-get('third-chld');
+  }
+
+  &__name {
+    color: color-get('bg-secondary');
+    font-family: 'Titan One';
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 4%;
+    text-transform: uppercase;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 161px;
+  }
+
+  &__name::after {
+    content: url(../images/dots.png);
+    position: absolute;
+    transform: translate(-260%, 170%);
+  }
+  &__name--3::after {
+    content: url(../images/dots.png);
+    position: absolute;
+    transform: translate(-310%, 170%);
+  }
+
+  &__name--1::before {
+    content: url(../images/products-icecream.png);
+    position: absolute;
+    transform: translate(-28%, -107%);
+  }
+
+  &__name--2::before {
+    content: url(../images/products-coffee.png);
+    position: absolute;
+    transform: translate(-25%, -107%);
+  }
+
+  &__name--3::before {
+    content: url(../images/products-milkshake.png);
+    position: absolute;
+    transform: translate(-22%, -109%);
+  }
+
+  &__description {
+    text-align: center;
+    padding: 30px 39px 111px 41px;
+    padding-top: 66px;
+    color: color-get('text-alternative');
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+  }
+
+  &__button {
+    display: flex;
+    margin: 0;
+    color: color-get('accent-primary');
+    position: absolute;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: color-get('text-alternative');
+    top: 83%;
+    left: 42%;
+    &:focus,
+    &:hover {
+      background-color: color-get('accent-primary');
+      color: color-get('text-alternative');
+    }
+  }
+
+  &__icon {
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+    stroke: none;
+    @include transition-add('fill');
+  }
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .products__name--1::before {
+    content: url(../images/products-icecream@2x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-28%, -106%);
+  }
+
+  .products__name--2::before {
+    content: url(../images/products-coffee@2x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-28%, -107%);
+  }
+
+  .products__name--3::before {
+    content: url(../images/products-milkshake@2x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-22%, -109%);
+  }
+}
+@media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+  .products__name--1::before {
+    content: url(../images/products-icecream@3x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-28%, -107%);
+  }
+
+  .products__name--2::before {
+    content: url(../images/products-coffee@3x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-28%, -107%);
+  }
+
+  .products__name--3::before {
+    content: url(../images/products-milkshake@3x.png) 249px 252px;
+    position: absolute;
+    transform: translate(-22%, -109%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    min-width: 768px;
+    max-width: 1199px;
+    width: 100%;
+
+    &__container {
+      max-width: 1199px;
+      margin: 0 auto;
+      padding: 122px 34px 112px;
+    }
+
+    &__label {
+      font-size: 26px;
+      line-height: 30px;
+    }
+
+    &__headline {
+      font-size: 48px;
+      line-height: 55px;
+      letter-spacing: 4%;
+    }
+
+    &__list {
+      list-style: none;
+      margin-top: 150px;
+      @include flex-display(wrap, 20px);
+    }
+
+    &__item {
+      @include flex-basis(3, 20px);
+    }
+
+    &__lorem {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .products {
+    min-width: 1200px;
+    width: 100%;
+
+    &__container {
+      min-width: 1200px;
+      margin: 0 auto;
+      padding: 127px 112px 119px;
+    }
+
+    &__label {
+      font-weight: 400px;
+      font-size: 30px;
+      line-height: 34px;
+      letter-spacing: 4%;
+    }
+
+    &__headline {
+      font-weight: 400;
+      font-size: 58px;
+      line-height: 66px;
+      letter-spacing: 6%;
+    }
+
+    &__list {
+      margin-top: 259px;
+      @include flex-display(wrap, 30px);
+    }
+
+    &__item {
+      @include flex-basis(3, 30px);
+    }
+
+    &__name {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 34px;
+      letter-spacing: 4%;
+      padding-top: 161px;
+    }
+
+    &__name--1::before {
+      content: url(../images/products-icecream-desktop.png);
+      position: absolute;
+      transform: translate(-22%, -108%);
+    }
+
+    &__name--2::before {
+      content: url(../images/products-coffee-desktop.png);
+      position: absolute;
+      transform: translate(-22%, -108%);
+    }
+
+    &__name--3::before {
+      content: url(../images/products-milkshake-desktop.png);
+      position: absolute;
+      transform: translate(-18%, -105%);
+    }
+
+    &__name::after {
+      content: url(../images/dots.png);
+      position: absolute;
+      transform: translate(-355%, 150%);
+    }
+    &__name--3::after {
+      content: url(../images/dots.png);
+      position: absolute;
+      transform: translate(-415%, 145%);
+    }
+
+    &__description {
+      padding: 70px 44px 152px;
+      padding-top: 66px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    &__lorem {
+      display: none;
+    }
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      &__name--1::before {
+        content: url(../images/products-icecream-desktop@2x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-22%, -108%);
+      }
+
+      &__name--2::before {
+        content: url(../images/products-coffee-desktop@2x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-22%, -108%);
+      }
+
+      &__name--3::before {
+        content: url(../images/products-milkshake-desktop@2x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-18%, -105%);
+      }
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      &__name--1::before {
+        content: url(../images/products-icecream-desktop@3x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-22%, -108%);
+      }
+
+      &__name--2::before {
+        content: url(../images/products-coffee-desktop@3x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-22%, -108%);
+      }
+
+      &__name--3::before {
+        content: url(../images/products-milkshake-desktop@3x.png) 335px 335px;
+        position: absolute;
+        transform: translate(-18%, -105%);
+      }
+    }
+  }
+}
+
+.made-by {
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.hidden-cat {
+  background: url(./../images/easter_bobo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+  color: transparent;
+}

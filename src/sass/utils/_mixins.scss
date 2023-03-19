@@ -1,0 +1,14 @@
+@mixin container($padding) {
+  margin: 0 auto;
+  min-width: 340px;
+  max-width: 1280px;
+  padding: $padding;
+}
+
+@mixin head_font {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  // font-family: 'DM Sans';
+  letter-spacing: 0.04em;
+}

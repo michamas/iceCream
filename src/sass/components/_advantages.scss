@@ -1,0 +1,252 @@
+@use '../utils/forward' as *;
+
+.advantage {
+  background: color-get('bg-secondary');
+  padding-top: 30px;
+  padding-bottom: 97px;
+
+  &__container {
+    @include flex-display(column, null, center, null);
+  }
+
+  &__header {
+    display: none;
+  }
+
+  &__list {
+    @include flex-display(column, 38px, center, start);
+    min-height: 570px;
+  }
+
+  &__item {
+    max-width: 230px;
+    height: 156px;
+  }
+
+  &__title {
+    font-family: 'Titan One';
+    line-height: 41px;
+    text-transform: uppercase;
+    @include font-type(normal, header-medium, little, medium);
+    color: color-get('accent-primary');
+    margin-bottom: 19px;
+    display: block;
+
+    &--vanilla-img::before {
+      margin-bottom: 19px;
+      content: url('../images/vanilla-icecream.png');
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+
+    &--apple-img::before {
+      margin-bottom: 19px;
+      content: url('../images/apple-icecream.png');
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+
+    &--heart-img::before {
+      margin-bottom: 19px;
+      content: url('../images/heart-icecream.png');
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+  }
+
+  &__text {
+    font-family: 'DM Sans';
+    @include font-type(bold, text-little, medium, small);
+    max-width: 230px;
+  }
+
+  @media screen and (min-width: 768px) {
+    & {
+      padding-bottom: 140px;
+      padding-top: 60px;
+      &__container {
+        @include flex-display(column, null, center, start);
+      }
+      &__list {
+        @include flex-display(row, 100px, center, start);
+        min-height: 250px;
+      }
+
+      &__item {
+        max-width: 230px;
+        height: 156px;
+      }
+
+      &__title {
+        @include font-type(normal, header-height, little, medium);
+        line-height: 55px;
+        margin-bottom: 13px;
+
+        &--vanilla-img::before {
+          margin-bottom: 36px;
+        }
+
+        &--apple-img::before {
+          margin-bottom: 36px;
+        }
+
+        &--heart-img::before {
+          margin-bottom: 36px;
+        }
+      }
+
+      &__text {
+        @include font-type(bold, text-small, medium, small);
+        max-width: 180px;
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    & {
+      padding-top: 30px;
+      &__container {
+        @include flex-display(column, null, center, null);
+      }
+
+      &__list {
+        @include flex-display(row, 100px, center, center);
+      }
+
+      &__item {
+        max-width: 300px;
+        height: 156px;
+      }
+
+      &__title {
+        @include font-type(normal, header-large, little, medium);
+        line-height: 66px;
+        margin-bottom: 15px;
+
+        &--vanilla-img::before {
+          margin-bottom: 36px;
+        }
+
+        &--apple-img::before {
+          margin-bottom: 36px;
+        }
+
+        &--heart-img::before {
+          margin-bottom: 36px;
+        }
+      }
+
+      &__text {
+        @include font-type(bold, text-normal, medium, small);
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+.mansory {
+  background: linear-gradient(to bottom, #fff5f6 0 45%, #ffffff 0 100%);
+  height: max-content;
+  width: 100%;
+}
+.mansory__container {
+  max-width: 1200px;
+  max-height: max-content;
+  margin: auto;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    & {
+      padding: 0 70px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    & {
+      padding: 0 110px;
+    }
+  }
+}
+.mansory__title {
+  display: none;
+}
+.mansory__animation {
+  display: flex;
+  position: relative;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+  width: 300px;
+  padding: 0;
+}
+.mansory__who {
+  position: relative;
+  font-size: 10px;
+  margin: 0;
+  width: 100%;
+  line-height: 1.5;
+  font-family: 'DM Sans';
+  background-color: #fff5f6;
+  z-index: 1;
+}
+.mansory__hearts {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  z-index: 3;
+  transition-property: animation;
+  transition-delay: 5s;
+}
+.mansory__hide {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 15px;
+  background: #fff5f6;
+  z-index: 2;
+  transition-property: transform;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+  .mansory__hearts:hover ~ & {
+    animation: mansoryWho 10s linear;
+    transform: translate(100%);
+    transition-delay: 0s;
+  }
+}
+
+.mansory__hearts:hover > span {
+  position: absolute;
+  background-color: #fff5f6;
+  color: black;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #fff5f6;
+  animation: mansoryWho 15s linear;
+  cursor: pointer;
+}
+
+@keyframes mansoryWho {
+  0% {
+    width: 100%;
+  }
+  40% {
+    width: 0%;
+  }
+  60% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.mansory__thumb {
+  width: 100%;
+}
+.mansory__photo {
+  object-fit: cover;
+}
